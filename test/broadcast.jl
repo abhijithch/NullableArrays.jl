@@ -72,12 +72,12 @@ module TestBroadcast
         ( (A1, U1, ()), (A2, U2, ()), (A3, U3, ()),
           (A1, V1, (M1,)), (A2, V2, (M2,)), (A3, V3, (M3,)),
     )
-        map!(g, array)
-        broadcast!(f, nullablearray)
+        map(g, array)
+        broadcast(f, nullablearray)
         @test isequal(nullablearray, NullableArray(array, mask...))
 
-        map!(g, array)
-        broadcast!(g, nullablearray; lift=true)
+        map(g, array)
+        broadcast(g, nullablearray; lift=true)
         @test isequal(nullablearray, NullableArray(array, mask...))
     end
 
